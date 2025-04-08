@@ -12,27 +12,27 @@ import java.util.List;
 /**
  * UserChangeHistoryController
  */
-@Tag(name = "Users Changes History", description = "Endpoints para histórico de alterações dos usuários")
+@Tag(name = "Users Changes History", description = "Endpoints for user change history")
 @RequestMapping("/api/users-changes-history")
 public interface UserChangeHistoryApi {
 
 	@PostMapping
-	@Operation(summary = "Salvar um novo histórico")
+	@Operation(summary = "Save a new history record")
 	ResponseEntity<UserChangeHistory> create(@RequestBody UserChangeHistory history);
 
 	@GetMapping("/{id}")
-	@Operation(summary = "Buscar por ID")
+	@Operation(summary = "Find by ID")
 	ResponseEntity<UserChangeHistory> findById(@PathVariable Long id);
 
 	@GetMapping("/user/{userId}")
-	@Operation(summary = "Buscar histórico por ID do usuário")
+	@Operation(summary = "Find history by user ID")
 	ResponseEntity<List<UserChangeHistory>> findByUserId(@PathVariable Integer userId);
 
 	@GetMapping
-	@Operation(summary = "Listar todos os históricos")
+	@Operation(summary = "List all history records")
 	ResponseEntity<List<UserChangeHistory>> findAll();
 
 	@DeleteMapping("/{id}")
-	@Operation(summary = "Excluir por ID")
+	@Operation(summary = "Delete by ID")
 	ResponseEntity<Void> deleteById(@PathVariable Long id);
 }
