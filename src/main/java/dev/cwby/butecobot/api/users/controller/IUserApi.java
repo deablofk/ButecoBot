@@ -1,10 +1,11 @@
 
-package dev.cwby.butecobot.api.users;
+package dev.cwby.butecobot.api.users.controller;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
+import dev.cwby.butecobot.api.users.domain.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

@@ -1,4 +1,4 @@
-package dev.cwby.butecobot.api.users;
+package dev.cwby.butecobot.api.users.service.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import dev.cwby.butecobot.api.common.exception.ApiException;
 import dev.cwby.butecobot.api.common.exception.ErrorCode;
+import dev.cwby.butecobot.api.users.domain.User;
+import dev.cwby.butecobot.api.users.repository.UserRepository;
+import dev.cwby.butecobot.api.users.service.IUserService;
 import lombok.RequiredArgsConstructor;
 
 /**

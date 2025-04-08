@@ -1,4 +1,4 @@
-package dev.cwby.butecobot.api.users;
+package dev.cwby.butecobot.api.users.controller;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.cwby.butecobot.api.users.domain.User;
+import dev.cwby.butecobot.api.users.service.IUserService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

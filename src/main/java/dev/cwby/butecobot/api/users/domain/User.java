@@ -1,4 +1,4 @@
-package dev.cwby.butecobot.api.users;
+package dev.cwby.butecobot.api.users.domain;
 
 import java.time.LocalDateTime;
 
