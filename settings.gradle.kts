@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "ButecoBot"
-include("bot", "process", "api")
+include("bot", "process", "api", "api-data")
