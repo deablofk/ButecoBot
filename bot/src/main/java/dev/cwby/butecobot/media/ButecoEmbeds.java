@@ -1,4 +1,4 @@
-package media;
+package dev.cwby.butecobot.media;
 
 import java.awt.Color;
 

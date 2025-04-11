@@ -9,11 +9,9 @@ import java.net.http.HttpResponse;
 import java.util.Optional;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.cwby.butecobot.ic.exception.CommandFailException;
-import dev.cwby.butecobot.integration.api.data.UserResponse;
 import net.dv8tion.jda.api.entities.Member;
 
 /**
@@ -84,12 +82,12 @@ public class ButecoApiClient {
 		return Optional.empty();
 	}
 
-	public void registerAndGiveCoins(Member member){
-                        //  $interaction->member->user['id'],
-                        //$interaction->member->user['username'],
-                        //$interaction->member->user->global_name,
-                        //$interaction->member->user->avatar,
-                        //$interaction->member->joined_at->format('Y-m-d H:i:s')
+	public void registerAndGiveCoins(Member member) {
+		// $interaction->member->user['id'],
+		// $interaction->member->user['username'],
+		// $interaction->member->user->global_name,
+		// $interaction->member->user->avatar,
+		// $interaction->member->joined_at->format('Y-m-d H:i:s')
 
 	}
 }
