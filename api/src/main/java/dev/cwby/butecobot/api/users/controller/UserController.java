@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.cwby.butecobot.api.users.domain.User;
+import dev.cwby.butecobot.api.users.mapper.UserMapper;
 import dev.cwby.butecobot.api.users.service.IUserService;
+import dev.cwby.butecobot.users.dto.UserRequest;
+import dev.cwby.butecobot.users.dto.UserResponse;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -27,32 +30,37 @@ import lombok.RequiredArgsConstructor;
 public class UserController implements IUserApi {
 
 	private final IUserService userService;
+	private static final UserMapper mapper = UserMapper.INSTANCE;
 
 	@PostMapping
-	public ResponseEntity<User> createUser(@RequestBody User user) {
-		User created = userService.createUser(user);
-		return ResponseEntity.ok(created);
+	public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest user) {
+		User created = userService.createUser(mapper.toEntity(user));
+		return ResponseEntity.ok(mapper.toResponse(created));
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable Long id) {
-		return userService.getUserById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+		return userService.getUserById(id).map(x -> ResponseEntity.ok(mapper.toResponse(x)))
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/discord/{discordId}")
-	public ResponseEntity<User> getUserByDiscordId(@PathVariable String discordId) {
-		return userService.getUserByDiscordId(discordId).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<UserResponse> getUserByDiscordId(@PathVariable String discordId) {
+		return userService.getUserByDiscordId(discordId).map(x -> ResponseEntity.ok(mapper.toResponse(x)))
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping
-	public ResponseEntity<List<User>> getAllUsers() {
-		return ResponseEntity.ok(userService.getAllUsers());
+	public ResponseEntity<List<UserResponse>> getAllUsers() {
+		List<User> users = userService.getAllUsers();
+		List<UserResponse> responses = mapper.toResponses(users);
+		return ResponseEntity.ok(responses);
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
-		User user = userService.updateUser(id, updatedUser);
-		return ResponseEntity.ok(user);
+	public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @RequestBody UserRequest updatedUser) {
+		User user = userService.updateUser(id, mapper.toEntity(updatedUser));
+		return ResponseEntity.ok(mapper.toResponse(user));
 	}
 
 	@DeleteMapping("/{id}")

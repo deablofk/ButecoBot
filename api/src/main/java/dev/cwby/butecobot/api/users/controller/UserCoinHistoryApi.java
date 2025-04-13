@@ -1,11 +1,11 @@
 package dev.cwby.butecobot.api.users.controller;
 
+import java.util.List;
+
+import dev.cwby.butecobot.users.dto.UserCoinHistoryRequest;
+import dev.cwby.butecobot.users.dto.UserCoinHistoryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
-import dev.cwby.butecobot.api.users.domain.UserCoinHistory;
-
-import java.util.List;
 
 /**
  * UserCoinHistoryApi
@@ -14,13 +14,13 @@ import java.util.List;
 public interface UserCoinHistoryApi {
 
 	@Operation(summary = "Create new history record")
-	UserCoinHistory create(UserCoinHistory history);
+	UserCoinHistoryResponse create(UserCoinHistoryRequest history);
 
 	@Operation(summary = "Find by ID")
-	UserCoinHistory findById(Long id);
+	UserCoinHistoryResponse findById(Long id);
 
 	@Operation(summary = "List all history records")
-	List<UserCoinHistory> findAll();
+	List<UserCoinHistoryResponse> findAll();
 
 	@Operation(summary = "Delete by ID")
 	void delete(Long id);
