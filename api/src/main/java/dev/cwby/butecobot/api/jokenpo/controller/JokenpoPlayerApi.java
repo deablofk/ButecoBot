@@ -2,7 +2,10 @@ package dev.cwby.butecobot.api.jokenpo.controller;
 
 import java.util.List;
 
-import dev.cwby.butecobot.api.jokenpo.domain.JokenpoPlayer;
+import org.springframework.http.ResponseEntity;
+
+import dev.cwby.butecobot.users.dto.JokenpoPlayerRequest;
+import dev.cwby.butecobot.users.dto.JokenpoPlayerResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -14,14 +17,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public interface JokenpoPlayerApi {
 
 	@Operation(summary = "Create a new Jokenpo player")
-	JokenpoPlayer create(JokenpoPlayer player);
+	ResponseEntity<JokenpoPlayerResponse> create(JokenpoPlayerRequest player);
 
 	@Operation(summary = "Find Jokenpo player by ID")
-	JokenpoPlayer findById(Long id);
+	ResponseEntity<JokenpoPlayerResponse> findById(Long id);
 
 	@Operation(summary = "List all Jokenpo players")
-	List<JokenpoPlayer> findAll();
+	ResponseEntity<List<JokenpoPlayerResponse>> findAll();
 
 	@Operation(summary = "Delete Jokenpo player by ID")
-	void delete(Long id);
+	ResponseEntity<Void> delete(Long id);
 }
