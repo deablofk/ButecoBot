@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import dev.cwby.butecobot.api.roulette.domain.Roulette;
-import dev.cwby.butecobot.users.dto.RouletteRequest;
-import dev.cwby.butecobot.users.dto.RouletteResponse;
+import dev.cwby.butecobot.roulette.dto.RouletteRequest;
+import dev.cwby.butecobot.roulette.dto.RouletteResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-import dev.cwby.butecobot.users.dto.JokenpoPlayerRequest;
-import dev.cwby.butecobot.users.dto.JokenpoPlayerResponse;
+import dev.cwby.butecobot.jokenpo.dto.JokenpoPlayerRequest;
+import dev.cwby.butecobot.jokenpo.dto.JokenpoPlayerResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 

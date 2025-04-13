@@ -7,8 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import dev.cwby.butecobot.api.jokenpo.domain.Jokenpo;
-import dev.cwby.butecobot.users.dto.JokenpoRequest;
-import dev.cwby.butecobot.users.dto.JokenpoResponse;
+import dev.cwby.butecobot.jokenpo.dto.JokenpoRequest;
+import dev.cwby.butecobot.jokenpo.dto.JokenpoResponse;
 
 /**
  * JokenpoMapper

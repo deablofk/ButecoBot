@@ -7,8 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import dev.cwby.butecobot.api.roulette.domain.Roulette;
-import dev.cwby.butecobot.users.dto.RouletteRequest;
-import dev.cwby.butecobot.users.dto.RouletteResponse;
+import dev.cwby.butecobot.roulette.dto.RouletteRequest;
+import dev.cwby.butecobot.roulette.dto.RouletteResponse;
 
 /**
  * RouletteMapper

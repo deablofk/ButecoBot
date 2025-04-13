@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.cwby.butecobot.api.roulette.mapper.RouletteBetMapper;
 import dev.cwby.butecobot.api.roulette.service.IRouletteBetService;
-import dev.cwby.butecobot.users.dto.RouletteBetRequest;
-import dev.cwby.butecobot.users.dto.RouletteBetResponse;
+import dev.cwby.butecobot.roulette.dto.RouletteBetRequest;
+import dev.cwby.butecobot.roulette.dto.RouletteBetResponse;
 import lombok.RequiredArgsConstructor;
 
 /**

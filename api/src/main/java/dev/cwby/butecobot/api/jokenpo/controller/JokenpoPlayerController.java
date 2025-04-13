@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.cwby.butecobot.api.jokenpo.mapper.JokenpoPlayerMapper;
 import dev.cwby.butecobot.api.jokenpo.service.IJokenpoPlayerService;
-import dev.cwby.butecobot.users.dto.JokenpoPlayerRequest;
-import dev.cwby.butecobot.users.dto.JokenpoPlayerResponse;
+import dev.cwby.butecobot.jokenpo.dto.JokenpoPlayerRequest;
+import dev.cwby.butecobot.jokenpo.dto.JokenpoPlayerResponse;
 import lombok.RequiredArgsConstructor;
 
 /**
