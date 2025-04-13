@@ -10,4 +10,10 @@ public interface ISlashCommand {
 
 	void onSlashCommandInteraction(SlashCommandInteractionEvent event) throws CommandFailException;
 
+	void onCooldown(SlashCommandInteractionEvent event) throws CommandFailException;
+
+	default boolean isCooldownEnabled() {
+		return true;
+	}
+
 }
