@@ -1,5 +1,6 @@
 package dev.cwby.butecobot.api.users.service.impl;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import dev.cwby.butecobot.api.common.exception.ApiException;
 import dev.cwby.butecobot.api.common.exception.ErrorCode;
 import dev.cwby.butecobot.api.users.domain.User;
+import dev.cwby.butecobot.api.users.repository.UserCoinHistoryRepository;
 import dev.cwby.butecobot.api.users.repository.UserRepository;
 import dev.cwby.butecobot.api.users.service.IUserService;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class UserServiceImpl implements IUserService {
 
 	private final UserRepository userRepository;
+	private final UserCoinHistoryRepository coinHistoryRepository;
 
 	@Override
 	public User createUser(User user) {
@@ -65,6 +68,19 @@ public class UserServiceImpl implements IUserService {
 		User existingUser = userRepository.findById(id)
 				.orElseThrow(() -> new ApiException(ErrorCode.DISCORD_USER_NOT_FOUND));
 		userRepository.deleteById(existingUser.getId());
+	}
+
+	@Override
+	public User getUserByDiscordIdWithTotalCoins(String discordId) {
+		User user = userRepository.findByDiscordId(discordId)
+				.orElseThrow(() -> new ApiException(ErrorCode.DISCORD_USER_NOT_FOUND));
+		BigDecimal totalCoins = coinHistoryRepository.findTotalCoinsByDiscordId(discordId).get();
+		user.setTotalCoins(totalCoins);
+
+		boolean canReceiveDailyCoins = coinHistoryRepository.findTodayDailyHistoryByDiscordId(discordId).isEmpty();
+		user.setCanReceiveDailyCoins(canReceiveDailyCoins);
+
+		return user;
 	}
 
 }

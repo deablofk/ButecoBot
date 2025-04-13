@@ -16,6 +16,8 @@ public interface IUserService {
 
 	Optional<User> getUserByDiscordId(String discordId);
 
+	User getUserByDiscordIdWithTotalCoins(String discordId);
+
 	List<User> getAllUsers();
 
 	User updateUser(Long id, User updatedUser);

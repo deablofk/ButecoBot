@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record UserCoinHistoryRequest(
-		@JsonProperty("user_id") String userId,
+		@JsonProperty("user_id") Long userId,
 		@JsonProperty("entity_id") String entityId,
 		BigDecimal amount,
 		String type,

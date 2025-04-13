@@ -22,6 +22,8 @@ public interface UserMapper {
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "isAdmin", ignore = true)
 	@Mapping(target = "updatedAt", ignore = true)
+	@Mapping(target = "totalCoins", ignore = true)
+	@Mapping(target = "canReceiveDailyCoins", ignore = true)
 	User toEntity(UserRequest requestDto);
 
 	UserResponse toResponse(User entity);

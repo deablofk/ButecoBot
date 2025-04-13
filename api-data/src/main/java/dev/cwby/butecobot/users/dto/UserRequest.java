@@ -17,14 +17,4 @@ public record UserRequest(
 		String avatar,
 		@JsonProperty("joined_at") LocalDateTime joinedAt,
 		@JsonProperty("received_initial_coins") boolean receivedInitialCoins) {
-
-	public UserRequest(UserResponse response) {
-		this(response.discordId(), response.username(), response.nickname(), response.avatar(), response.joinedAt(),
-				response.receivedInitialCoins());
-	}
-
-	public UserRequest(UserResponse response, boolean receivedInitialCoins) {
-		this(response.discordId(), response.username(), response.nickname(), response.avatar(), response.joinedAt(),
-				receivedInitialCoins);
-	}
 }

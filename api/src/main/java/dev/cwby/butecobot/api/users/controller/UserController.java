@@ -46,8 +46,7 @@ public class UserController implements IUserApi {
 
 	@GetMapping("/discord/{discordId}")
 	public ResponseEntity<UserResponse> getUserByDiscordId(@PathVariable String discordId) {
-		return userService.getUserByDiscordId(discordId).map(x -> ResponseEntity.ok(mapper.toResponse(x)))
-				.orElse(ResponseEntity.notFound().build());
+		return ResponseEntity.ok(mapper.toResponse(userService.getUserByDiscordIdWithTotalCoins(discordId)));
 	}
 
 	@GetMapping
