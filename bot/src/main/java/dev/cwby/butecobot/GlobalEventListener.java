@@ -2,6 +2,7 @@ package dev.cwby.butecobot;
 
 import java.util.Map;
 
+import dev.cwby.butecobot.cooldown.CooldownManager;
 import dev.cwby.butecobot.ic.ISlashCommand;
 import dev.cwby.butecobot.ic.SlashCommandHandler;
 import dev.cwby.butecobot.ic.annotation.EventListener;
@@ -27,7 +28,11 @@ public class GlobalEventListener extends ListenerAdapter {
 		}
 
 		try {
-			executor.onSlashCommandInteraction(event);
+			if (executor.isCooldownEnabled() && CooldownManager.isOnCooldown(event.getMember().getId())) {
+				executor.onCooldown(event);
+			} else {
+				executor.onSlashCommandInteraction(event);
+			}
 		} catch (CommandFailException e) {
 			e.printStackTrace();
 		}

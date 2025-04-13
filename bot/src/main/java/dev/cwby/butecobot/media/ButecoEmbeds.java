@@ -10,7 +10,13 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
  */
 public class ButecoEmbeds {
 
-	private ButecoEmbeds() {}
+	private ButecoEmbeds() {
+	}
+
+	public static final MessageEmbed COOLDOWN = new EmbedBuilder().setTitle("Rate Limit")
+			.setDescription("Excesso de execuções de comando! Aguarde 1 minuto.")
+			.setColor(Color.RED)
+			.setThumbnail(ButecoMedia.STEVE_NO).build();
 
 	public static final MessageEmbed COOLDOWN_EXTRACT = new EmbedBuilder().setTitle("Suas coins")
 			.setDescription("Não vai brotar dinheiro do nada! Aguarde 1 min para ver seu extrato!")
