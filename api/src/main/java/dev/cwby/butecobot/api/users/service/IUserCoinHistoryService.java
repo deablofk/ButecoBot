@@ -1,5 +1,6 @@
 package dev.cwby.butecobot.api.users.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,4 +17,6 @@ public interface IUserCoinHistoryService {
 	List<UserCoinHistory> findAll();
 
 	void deleteById(Long id);
+
+	BigDecimal findTotalCoinsByDiscordId(String discordId);
 }

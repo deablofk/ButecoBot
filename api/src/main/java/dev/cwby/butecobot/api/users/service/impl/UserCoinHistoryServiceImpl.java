@@ -1,10 +1,13 @@
 package dev.cwby.butecobot.api.users.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import dev.cwby.butecobot.api.common.exception.ApiException;
+import dev.cwby.butecobot.api.common.exception.ErrorCode;
 import dev.cwby.butecobot.api.users.domain.UserCoinHistory;
 import dev.cwby.butecobot.api.users.repository.UserCoinHistoryRepository;
 import dev.cwby.butecobot.api.users.service.IUserCoinHistoryService;
@@ -37,6 +40,12 @@ public class UserCoinHistoryServiceImpl implements IUserCoinHistoryService {
 	@Override
 	public void deleteById(Long id) {
 		repository.deleteById(id);
+	}
+
+	@Override
+	public BigDecimal findTotalCoinsByDiscordId(String discordId) {
+		return repository.findTotalCoinsByDiscordId(discordId)
+				.orElseThrow(() -> new ApiException(ErrorCode.DISCORD_USER_NOT_FOUND));
 	}
 
 }
