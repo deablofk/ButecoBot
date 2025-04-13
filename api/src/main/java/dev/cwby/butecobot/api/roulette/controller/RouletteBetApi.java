@@ -2,7 +2,11 @@ package dev.cwby.butecobot.api.roulette.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import dev.cwby.butecobot.api.roulette.domain.RouletteBet;
+import dev.cwby.butecobot.users.dto.RouletteBetRequest;
+import dev.cwby.butecobot.users.dto.RouletteBetResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -13,14 +17,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public interface RouletteBetApi {
 
 	@Operation(summary = "Create a new roulette bet")
-	RouletteBet create(RouletteBet bet);
+	ResponseEntity<RouletteBetResponse> create(RouletteBetRequest bet);
 
 	@Operation(summary = "Find roulette bet by ID")
-	RouletteBet findById(Long id);
+	ResponseEntity<RouletteBetResponse> findById(Long id);
 
 	@Operation(summary = "List all roulette bets")
-	List<RouletteBet> findAll();
+	ResponseEntity<List<RouletteBetResponse>> findAll();
 
 	@Operation(summary = "Delete roulette bet by ID")
-	void delete(Long id);
+	ResponseEntity<Void> delete(Long id);
 }
