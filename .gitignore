@@ -6,4 +6,15 @@ build
 
 kls_database.db
 
-bin
+
+api/.*
+api/bin
+api/build
+
+api-data/.*
+api-data/bin
+api-data/build
+
+process/.*
+process/bin
+process/build
